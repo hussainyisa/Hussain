@@ -1,0 +1,793 @@
+/* ==========================================================================
+   Hussain Yisa portfolio
+   Design notes: a case-file look for a criminology + cybersecurity story.
+   Light blue is the accent colour. Everything else is quiet.
+   Edit the colours and fonts in :root below.
+   ========================================================================== */
+
+:root {
+  --paper: #ECEFF2;
+  --surface: #F8F9FB;
+  --ink: #101A24;
+  --steel: #4E5D6B;
+  --line: #C5CDD5;
+  --accent: #7CC4F0;
+  --on-accent: #101A24;
+  --bar: #101A24;
+  --link: #0B4F8A;
+
+  --font-display: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --max: 68rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0D141B;
+    --surface: #141D26;
+    --ink: #E8EDF2;
+    --steel: #9AA9B7;
+    --line: #26333F;
+    --bar: #E8EDF2;
+    --link: #7DB7F0;
+  }
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+a { color: var(--link); text-underline-offset: 0.2em; }
+
+:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 20;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- Header ---------- */
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 2rem;
+  padding: 1rem var(--gutter);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 48rem) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  padding-block: 0.25rem;
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover { border-bottom-color: var(--accent); }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding-block: clamp(3rem, 9vw, 7rem) clamp(3.5rem, 8vw, 6rem);
+}
+
+.hero-grid {
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 56rem) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 4rem;
+  }
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.75rem, 12vw, 8.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+.hero h1 span { display: block; }
+
+.lede {
+  max-width: 40rem;
+  margin-top: 2rem;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.5;
+}
+
+/* The one memorable moment: key phrases start redacted, then the bars lift. */
+.redact {
+  padding-inline: 0.15em;
+  margin-inline: -0.15em;
+  background-image: linear-gradient(var(--bar), var(--bar));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  animation: lift 0.55s cubic-bezier(0.6, 0, 0.2, 1) both;
+}
+
+.redact:nth-of-type(1) { animation-delay: 0.6s; }
+.redact:nth-of-type(2) { animation-delay: 0.95s; }
+.redact:nth-of-type(3) { animation-delay: 1.3s; }
+
+@keyframes lift {
+  from { background-size: 100% 100%; }
+  to   { background-size: 0% 100%; }
+}
+
+/* Pressing "Redact" puts the bars back. Higher specificity beats the animation. */
+.lede.is-redacted .redact {
+  animation: none;
+  background-size: 100% 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .redact { animation: none; }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border: 2px solid var(--ink);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.btn-primary:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--accent);
+}
+
+.btn-ghost { color: var(--ink); }
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.redact-toggle {
+  padding: 0.4rem 0.2rem;
+  border: 0;
+  background: none;
+  color: var(--steel);
+  font: inherit;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+.redact-toggle:hover { color: var(--ink); }
+.redact-toggle[hidden] { display: none; }
+
+.hero-side {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero-art { margin: 0; }
+
+.hero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.file-summary {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 0.5rem solid var(--accent);
+  padding: 1.5rem;
+}
+
+.file-summary div + div {
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.file-summary dt {
+  color: var(--steel);
+  font-size: 0.9rem;
+}
+
+.file-summary dd {
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+  border-top: 1px solid var(--line);
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.split {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 56rem) {
+  .split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 4rem;
+  }
+}
+
+.prose { max-width: 38rem; }
+.prose p + p { margin-top: 1.1rem; }
+
+/* ---------- Skills ---------- */
+
+.skills {
+  display: grid;
+  gap: 2.5rem 2rem;
+  margin-top: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.skill-group h3 {
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.skill-group li {
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- Work ---------- */
+
+.exhibits { margin-top: 2.5rem; }
+
+.exhibit {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 40rem) {
+  .exhibit { grid-template-columns: 4.5rem minmax(0, 1fr); gap: 2rem; }
+}
+
+.exhibit:last-child { border-bottom: 1px solid var(--line); }
+
+/* Evidence-marker tent shape */
+.marker {
+  display: grid;
+  place-items: end center;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding-bottom: 0.45rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1;
+  clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+}
+
+@media (min-width: 40rem) {
+  .marker { width: 4.5rem; height: 4.5rem; font-size: 1.9rem; }
+}
+
+.exhibit-body { max-width: 40rem; }
+
+.exhibit h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.exhibit-body > p { margin-top: 0.6rem; }
+
+.sample {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px dashed var(--steel);
+  color: var(--steel);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8rem;
+  vertical-align: middle;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.tags li {
+  padding: 0.15rem 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 0.875rem;
+}
+
+.exhibit .links { margin-top: 1rem; font-weight: 600; }
+
+/* ---------- Education ---------- */
+
+.path > div {
+  display: grid;
+  gap: 0.25rem 2rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.path > div:last-child { border-bottom: 1px solid var(--line); }
+
+@media (min-width: 40rem) {
+  .path > div { grid-template-columns: 8rem minmax(0, 1fr); }
+}
+
+.path dt { color: var(--steel); }
+
+.path dd strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+/* ---------- Contact ---------- */
+
+.contact-lead { max-width: 32rem; font-size: 1.2rem; }
+
+.email {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 4vw, 2.1rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.2em;
+  text-underline-offset: 0.15em;
+  overflow-wrap: anywhere;
+}
+.email:hover { color: var(--link); }
+
+.social-title {
+  margin-top: 3rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.socials { margin-top: 0.75rem; max-width: 34rem; }
+
+.socials li { border-bottom: 1px solid var(--line); }
+.socials li:first-child { border-top: 1px solid var(--line); }
+
+.socials a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0.25rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 0.15s, padding 0.15s;
+}
+
+.socials a span:first-child { font-weight: 600; }
+.socials a span:last-child { color: var(--steel); overflow-wrap: anywhere; text-align: right; }
+
+.socials a:hover {
+  background: var(--surface);
+  padding-inline: 0.75rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--steel);
+  font-size: 0.9rem;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+}
+
+/* ---------- 404 page ---------- */
+
+.not-found {
+  min-height: 70vh;
+  display: grid;
+  align-content: center;
+  gap: 1.25rem;
+  padding-block: 4rem;
+}
+
+.not-found h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.not-found p { max-width: 30rem; }
+.not-found .btn { justify-self: start; }
+
+/* ==========================================================================
+   Interactive layer
+   Everything below is progressive: the page reads fine without it, and each
+   moving part switches itself off for people who prefer reduced motion.
+   ========================================================================== */
+
+/* ---------- Scroll progress bar ---------- */
+
+.progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 4px;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* ---------- Hero network canvas ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ---------- Hero image: tilt and click to change ---------- */
+
+.hero-art-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.hero-art img { transition: opacity 0.18s, scale 0.18s; }
+.hero-art img.swap { opacity: 0; scale: 0.97; }
+
+.hero-art figcaption {
+  margin-top: 0.5rem;
+  color: var(--steel);
+  font-size: 0.875rem;
+}
+
+/* ---------- Reveal on scroll ---------- */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Hover details ---------- */
+
+.skill-group li {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0% 100%;
+  transition: background-size 0.3s ease, color 0.3s ease, padding 0.3s ease;
+}
+
+.skill-group li:hover {
+  background-size: 100% 100%;
+  padding-left: 0.75rem;
+  color: var(--on-accent);
+}
+
+.marker {
+  transform-origin: bottom center;
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+.exhibit:hover .marker { transform: rotate(-7deg) translateY(-4px); }
+
+.tags li { transition: background-color 0.2s, border-color 0.2s, color 0.2s; }
+.exhibit:hover .tags li {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* ---------- Terminal ---------- */
+
+.term-note { margin-top: 1rem; max-width: 20rem; color: var(--steel); }
+
+.term-note code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.1rem 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.term {
+  background: #0B1118;
+  color: #DCE4EB;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  max-width: 42rem;
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  background: #16212C;
+  color: #8FA3B5;
+  font-size: 0.8rem;
+}
+
+.term-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: #3A4C5E;
+}
+.term-dot:first-child { background: var(--accent); }
+
+.term-title { margin-left: 0.5rem; }
+
+.term-screen {
+  height: 20rem;
+  padding: 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.term-line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.term-cmd { color: #7CC4F0; }
+.term-muted { color: #8FA3B5; }
+.term-line a { color: #7DB7F0; }
+
+.term-form {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  border-top: 1px solid #26333F;
+}
+
+.term-form:focus-within {
+  outline: 3px solid var(--link);
+  outline-offset: -3px;
+}
+
+.term-prompt { color: #7CC4F0; }
+
+.term-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.term-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.25rem 1rem 1rem;
+}
+
+.term-chips button {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #3A4C5E;
+  background: transparent;
+  color: #DCE4EB;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.term-chips button:hover {
+  background: #7CC4F0;
+  border-color: #7CC4F0;
+  color: #101A24;
+}
+
+/* ---------- Reduced motion: switch the movement off ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .marker,
+  .skill-group li,
+  .hero-art-btn,
+  .hero-art img { transition: none; }
+  .exhibit:hover .marker { transform: none; }
+}
+
+/* ---------- Role line under the name, and status chip ---------- */
+
+.role {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  line-height: 1.3;
+}
+
+.role a {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.18em;
+  text-underline-offset: 0.2em;
+  transition: color 0.15s;
+}
+.role a:hover { color: var(--link); }
+
+.status {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  vertical-align: middle;
+}

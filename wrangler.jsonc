@@ -1,0 +1,10 @@
+{
+  // Tells Cloudflare to publish this folder as a static website.
+  // "name" must match the project name shown in Cloudflare's setup screen.
+  "name": "hussain-yisa-portfolio",
+  "compatibility_date": "2026-10-25",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}

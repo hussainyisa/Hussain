@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hussain Yisa | Aspiring cybersecurity analyst and web developer</title>
+  <meta name="description" content="Portfolio of Hussain Yisa: criminology student, web developer and aspiring cybersecurity analyst. See projects, skills and where to find me online.">
+  <meta name="theme-color" content="#101A24">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hussain Yisa | Aspiring cybersecurity analyst and web developer">
+  <meta property="og:description" content="Criminology student, web developer and aspiring cybersecurity analyst. Projects, skills and contact links.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Thin bar at the top of the page that fills as you scroll -->
+  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top">Hussain Yisa</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#education">Education</a>
+      <a href="#terminal">Terminal</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <!-- Animated network that reacts to the cursor (drawn by js/main.js) -->
+      <canvas class="net" id="net" aria-hidden="true"></canvas>
+      <div class="wrap hero-grid">
+        <div class="hero-main">
+          <h1>
+            <span>Hussain</span>
+            <span>Yisa</span>
+          </h1>
+
+          <p class="role"><a href="https://twinspark.digital/" target="_blank" rel="noopener">Co-founder Twinspark Digital</a></p>
+
+          <!-- EDIT: the three highlighted phrases get "redacted" then revealed when the page loads. -->
+          <p class="lede" id="lede">
+            I am a <span class="redact">300-level Criminology student</span> with a strong passion for
+            <span class="redact">web development</span> and <span class="redact">cybersecurity</span>.
+            My goal is to leverage the knowledge gained from my criminology studies to advance the field of
+            cybersecurity, and conversely, to apply cybersecurity principles to enrich my understanding of
+            criminology.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#work">See my work</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+            <button class="redact-toggle" id="redact-toggle" type="button" hidden>Redact</button>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <!-- EDIT: pick your image by changing the file name below to
+               images/hero-1.svg, images/hero-2.svg or images/hero-3.svg.
+               To use your own photo, add it to the images folder (for example images/me.jpg)
+               and point src at it. Write a short description in alt if it shows you. -->
+          <!-- Clicking the image cycles through the images listed in data-images.
+               Delete the data-images attribute to keep a single fixed image. -->
+          <figure class="hero-art" data-images="images/hero-1.svg images/hero-2.svg images/hero-3.svg">
+            <img src="images/hero-3.svg" width="640" height="480" alt="">
+          </figure>
+
+          <aside class="file-summary" aria-label="Summary">
+            <dl>
+              <div>
+                <dt>Studying</dt>
+                <dd>Criminology, 300 level</dd>
+              </div>
+              <div>
+                <dt>Building</dt>
+                <dd>Websites and web apps</dd>
+              </div>
+              <div>
+                <dt>Aiming for</dt>
+                <dd>Cybersecurity analyst roles</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <h2>Skills</h2>
+        <div class="skills">
+          <div class="skill-group">
+            <h3>Security</h3>
+            <ul>
+              <li>Networking fundamentals</li>
+              <li>Threat research and OSINT</li>
+              <li>Log and traffic analysis</li>
+              <li>Vulnerability basics</li>
+              <li>Linux command line</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Web development</h3>
+            <ul>
+              <li>HTML, CSS and JavaScript</li>
+              <li>Responsive, accessible design</li>
+              <li>Git and GitHub</li>
+              <li>Static hosting on Cloudflare</li>
+              <li>Secure coding habits</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Criminology</h3>
+            <ul>
+              <li>Criminological theory</li>
+              <li>Cybercrime and fraud</li>
+              <li>Research methods</li>
+              <li>Report writing</li>
+              <li>Evidence and legal procedure</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <h2>Selected work</h2>
+
+        <ol class="exhibits">
+
+          <li class="exhibit">
+            <span class="marker" aria-label="Exhibit A">A</span>
+            <div class="exhibit-body">
+              <h3>This portfolio</h3>
+              <p>
+                A static site in plain HTML, CSS and JavaScript, hosted free on Cloudflare Pages from a
+                GitHub repository. It sends a strict content security policy, loads no trackers and
+                works without JavaScript.
+              </p>
+              <ul class="tags">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Cloudflare Pages</li>
+              </ul>
+              <!-- EDIT: replace YOUR-USERNAME and YOUR-REPO with your GitHub details. -->
+              <p class="links"><a href="https://github.com/YOUR-USERNAME/YOUR-REPO">View the source on GitHub</a></p>
+            </div>
+          </li>
+
+          <!-- EDIT: add more projects by copying a whole <li class="exhibit"> block. -->
+          <li class="exhibit">
+            <span class="marker" aria-label="Exhibit B">B</span>
+            <div class="exhibit-body">
+              <h3>Built a Mini Security Operations Center with Wazuh: From Real-World Attacks to Automated Response</h3>
+              <p>
+                A hands-on security operations project built around Wazuh, following attack activity from
+                detection through to an automated response.
+              </p>
+              <ul class="tags">
+                <li>Wazuh</li><li>Security operations</li><li>Threat detection</li><li>Automated response</li>
+              </ul>
+              <p class="links"><a href="#contact">Ask about this project</a></p>
+            </div>
+          </li>
+
+          <li class="exhibit">
+            <span class="marker" aria-label="Exhibit C">C</span>
+            <div class="exhibit-body">
+              <h3>Social engineering and phishing as forms of cybercrime <span class="status">In progress</span></h3>
+              <p>
+                A project studying social engineering and phishing as forms of cybercrime, and the
+                strategies used for crime prevention, investigation and cybersecurity awareness.
+              </p>
+              <ul class="tags">
+                <li>Social engineering</li><li>Phishing</li><li>Cybercrime</li><li>Crime prevention</li><li>Cybersecurity awareness</li>
+              </ul>
+              <p class="links"><a href="#contact">Ask about this project</a></p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="wrap split">
+        <h2>Education and path</h2>
+        <dl class="path">
+          <div>
+            <dt>Now</dt>
+            <dd><strong>BSc Criminology, 300 level</strong>Nile University of Nigeria</dd>
+          </div>
+          <div>
+            <dt>Alongside</dt>
+            <dd><strong>Web development</strong>Building and shipping my own projects</dd>
+          </div>
+          <div>
+            <dt>Next</dt>
+            <dd><strong>Cybersecurity analyst</strong>Entry-level security certifications and a first analyst role</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- TERMINAL. Hidden until JavaScript runs. Its answers are read from the rest of this page,
+         so editing your skills, projects or contact details updates the terminal too. -->
+    <section class="section" id="terminal" hidden>
+      <div class="wrap split">
+        <div>
+          <h2>Interview me</h2>
+          <p class="term-note">Type a command or tap one. Try <code>help</code>, or something more adventurous.</p>
+        </div>
+        <div class="term">
+          <div class="term-bar" aria-hidden="true">
+            <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+            <span class="term-title">visitor@yisa: ~</span>
+          </div>
+          <div class="term-screen" id="term-out" role="log" aria-live="polite" tabindex="0" aria-label="Terminal output"></div>
+          <form class="term-form" id="term-form" autocomplete="off">
+            <label class="term-prompt" for="term-input">$</label>
+            <input id="term-input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" aria-label="Type a command">
+          </form>
+          <div class="term-chips">
+            <button type="button" data-cmd="help">help</button>
+            <button type="button" data-cmd="whoami">whoami</button>
+            <button type="button" data-cmd="skills">skills</button>
+            <button type="button" data-cmd="projects">projects</button>
+            <button type="button" data-cmd="education">education</button>
+            <button type="button" data-cmd="contact">contact</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap split">
+        <div>
+          <h2>Contact</h2>
+        </div>
+        <div>
+          <p class="contact-lead">Hiring, collaborating or just want to talk security? Send me a message.</p>
+
+          <a class="email" href="mailto:hussainyisa035@gmail.com">hussainyisa035@gmail.com</a>
+
+          <h3 class="social-title">Find me online</h3>
+          <!-- EDIT: replace every YOUR-USERNAME with your real handle. Delete rows you don't use. -->
+          <ul class="socials">
+            <li><a href="https://github.com/YOUR-USERNAME"><span>GitHub</span><span>@YOUR-USERNAME</span></a></li>
+            <li><a href="https://www.linkedin.com/in/YOUR-USERNAME"><span>LinkedIn</span><span>in/YOUR-USERNAME</span></a></li>
+            <li><a href="https://x.com/YOUR-USERNAME"><span>X</span><span>@YOUR-USERNAME</span></a></li>
+            <li><a href="https://www.instagram.com/YOUR-USERNAME"><span>Instagram</span><span>@YOUR-USERNAME</span></a></li>
+            <li><a href="https://tryhackme.com/p/YOUR-USERNAME"><span>TryHackMe</span><span>YOUR-USERNAME</span></a></li>
+            <li><a href="https://app.hackthebox.com/users/YOUR-ID"><span>Hack The Box</span><span>YOUR-USERNAME</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>&copy; <span id="year">2026</span> Hussain Yisa</p>
+    </div>
+  </footer>
+</body>
+</html>
