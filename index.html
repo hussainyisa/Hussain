@@ -17,8 +17,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -41,7 +41,7 @@
 
     <!-- HERO -->
     <section class="hero" id="top">
-      <!-- Animated network that reacts to the cursor (drawn by js/main.js) -->
+      <!-- Animated network that reacts to the cursor (drawn by main.js) -->
       <canvas class="net" id="net" aria-hidden="true"></canvas>
       <div class="wrap hero-grid">
         <div class="hero-main">
@@ -70,13 +70,13 @@
 
         <div class="hero-side">
           <!-- EDIT: pick your image by changing the file name below to
-               images/hero-1.svg, images/hero-2.svg or images/hero-3.svg.
-               To use your own photo, add it to the images folder (for example images/me.jpg)
+               hero-1.svg, hero-2.svg or hero-3.svg.
+               To use your own photo, upload it next to index.html (for example me.jpg)
                and point src at it. Write a short description in alt if it shows you. -->
           <!-- Clicking the image cycles through the images listed in data-images.
                Delete the data-images attribute to keep a single fixed image. -->
-          <figure class="hero-art" data-images="images/hero-1.svg images/hero-2.svg images/hero-3.svg">
-            <img src="images/hero-3.svg" width="640" height="480" alt="">
+          <figure class="hero-art" data-images="hero-1.svg hero-2.svg hero-3.svg">
+            <img src="hero-3.svg" width="640" height="480" alt="">
           </figure>
 
           <aside class="file-summary" aria-label="Summary">
