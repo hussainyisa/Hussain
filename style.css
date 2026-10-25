@@ -1,20 +1,23 @@
 /* ==========================================================================
    Hussain Yisa portfolio
    Design notes: a case-file look for a criminology + cybersecurity story.
-   Light blue is the accent colour. Everything else is quiet.
+   Black and white. White is the accent colour.
    Edit the colours and fonts in :root below.
    ========================================================================== */
 
+/* Black theme with white accents. Change these values to recolour the whole site. */
 :root {
-  --paper: #ECEFF2;
-  --surface: #F8F9FB;
-  --ink: #101A24;
-  --steel: #4E5D6B;
-  --line: #C5CDD5;
-  --accent: #7CC4F0;
-  --on-accent: #101A24;
-  --bar: #101A24;
-  --link: #0B4F8A;
+  color-scheme: dark;
+
+  --paper: #000000;      /* page background */
+  --surface: #0E0E0E;    /* panels and chips */
+  --ink: #FFFFFF;        /* main text */
+  --steel: #A3A3A3;      /* quieter text */
+  --line: #2A2A2A;       /* thin dividers */
+  --accent: #FFFFFF;     /* highlight colour */
+  --on-accent: #000000;  /* text that sits on the highlight */
+  --bar: #FFFFFF;        /* redaction bars */
+  --link: #FFFFFF;
 
   --font-display: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -22,18 +25,6 @@
 
   --gutter: clamp(1.25rem, 5vw, 4rem);
   --max: 68rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #0D141B;
-    --surface: #141D26;
-    --ink: #E8EDF2;
-    --steel: #9AA9B7;
-    --line: #26333F;
-    --bar: #E8EDF2;
-    --link: #7DB7F0;
-  }
 }
 
 /* ---------- Base ---------- */
@@ -229,9 +220,9 @@ a { color: var(--link); text-underline-offset: 0.2em; }
   color: var(--on-accent);
 }
 .btn-primary:hover {
-  background: var(--ink);
+  background: transparent;
   border-color: var(--ink);
-  color: var(--accent);
+  color: var(--ink);
 }
 
 .btn-ghost { color: var(--ink); }
@@ -656,8 +647,8 @@ a { color: var(--link); text-underline-offset: 0.2em; }
 }
 
 .term {
-  background: #0B1118;
-  color: #DCE4EB;
+  background: #0A0A0A;
+  color: #E6E6E6;
   border: 1px solid var(--line);
   font-family: var(--font-mono);
   font-size: 0.9rem;
@@ -670,8 +661,8 @@ a { color: var(--link); text-underline-offset: 0.2em; }
   align-items: center;
   gap: 0.4rem;
   padding: 0.6rem 0.9rem;
-  background: #16212C;
-  color: #8FA3B5;
+  background: #161616;
+  color: #9A9A9A;
   font-size: 0.8rem;
 }
 
@@ -679,7 +670,7 @@ a { color: var(--link); text-underline-offset: 0.2em; }
   width: 0.65rem;
   height: 0.65rem;
   border-radius: 50%;
-  background: #3A4C5E;
+  background: #444444;
 }
 .term-dot:first-child { background: var(--accent); }
 
@@ -697,16 +688,16 @@ a { color: var(--link); text-underline-offset: 0.2em; }
   overflow-wrap: anywhere;
 }
 
-.term-cmd { color: #7CC4F0; }
-.term-muted { color: #8FA3B5; }
-.term-line a { color: #7DB7F0; }
+.term-cmd { color: #FFFFFF; }
+.term-muted { color: #9A9A9A; }
+.term-line a { color: #FFFFFF; }
 
 .term-form {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   padding: 0.7rem 1rem;
-  border-top: 1px solid #26333F;
+  border-top: 1px solid #2A2A2A;
 }
 
 .term-form:focus-within {
@@ -714,7 +705,7 @@ a { color: var(--link); text-underline-offset: 0.2em; }
   outline-offset: -3px;
 }
 
-.term-prompt { color: #7CC4F0; }
+.term-prompt { color: #FFFFFF; }
 
 .term-form input {
   flex: 1;
@@ -737,18 +728,18 @@ a { color: var(--link); text-underline-offset: 0.2em; }
 
 .term-chips button {
   padding: 0.3rem 0.7rem;
-  border: 1px solid #3A4C5E;
+  border: 1px solid #444444;
   background: transparent;
-  color: #DCE4EB;
+  color: #E6E6E6;
   font: inherit;
   cursor: pointer;
   transition: background-color 0.15s, color 0.15s;
 }
 
 .term-chips button:hover {
-  background: #7CC4F0;
-  border-color: #7CC4F0;
-  color: #101A24;
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #000000;
 }
 
 /* ---------- Reduced motion: switch the movement off ---------- */

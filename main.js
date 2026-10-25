@@ -74,7 +74,7 @@
     var hero = canvas.parentNode;
     var LINK = 130;
     var REACH = 170;
-    var FLAG = "124,196,240";
+    var FLAG = "255,255,255";
     var nodeRgb = "78,93,107";
     var w = 0;
     var h = 0;
